@@ -1,0 +1,109 @@
+<div class="container">
+
+
+    <button *ngFor="let serve of Serving" type="submit" (click)="ServeClick(serve)" class="box">
+        {{serve}}
+        Serving </button><br><br><br>
+
+    <div *ngIf="togglebutton">
+       Annua 50% off <label class="switch">
+            <input type="checkbox"  [(ngModel)]="formonthoranual">
+            <span class="slider round"></span>
+        </label>monthly
+    </div><br><br>
+    <div class="row" *ngIf="hidecard">
+        <div class="col-md-3">
+            <div class="card" (click)="ShowSavedlollipop(this.lolipopprice)">
+                <div class="card-body">
+                    <h5 class="card-title">lollipop</h5>
+                    <h6 class="card-subtitle">
+                        <span *ngIf="formonthoranual == true" class="dark">$ {{this.lolipopprice}}  <span class="ligth">per month</span></span>
+                        <span *ngIf="formonthoranual == false" class="dark"> $ {{this.lolipopprice/2}}  <span class="ligth">per year</span></span> 
+                    </h6>
+                    <p class="card-text">for {{service}} serving</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" >
+            <div class="card" (click)="ShowSavedicecandy(this.IcecandyPrice)">
+                <div class="card-body">
+                    <h5 class="card-title">Icecandy</h5>
+                    <h6 class="card-subtitle">
+                        <span *ngIf="formonthoranual == true" class="dark">$ {{this.IcecandyPrice}}  <span class="ligth">per month</span></span>
+                        <span *ngIf="formonthoranual == false" class="dark">$ {{this.IcecandyPrice/2}} <span class="ligth">per year</span></span>
+                     </h6>
+                    <p class="card-text">for {{service}} serving</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3"  *ngIf="Islolipup">
+            <div class="card" >
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <h6 class="card-subtitle">
+                        <span class="dark">your saving with lalipop</span><br/>
+                        <span class="color dark">$ {{clickedlolisaving}}</span>
+                    </h6>
+                    <p class="card-text">for {{service}} serving </p>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3" *ngIf="IsIcecream">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> </h5>
+                    <h6 class="card-subtitle">
+                        <span class="dark">your saving with icecandy</span> <br>
+                        <span class="color dark">$ {{clickedicesaving}}</span> 
+                    
+                    </h6>
+                    <p class="card-text">for {{service}} serving </p>
+
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+
+        <table class="col-md-8 table table-bordered">
+            <tr>
+                <th>lollipop</th>
+                <th>Price(per serving)</th>
+            </tr>
+
+            <tr>
+                <td>Annually</td>
+                <td>0.5$</td>
+            </tr>
+
+            <tr>
+                <td>Monthly</td>
+                <td>1$</td>
+            </tr>
+        </table>
+
+        <table class="col-md-8 table table-bordered">
+            <tr>
+                <th>Icecandy</th>
+                <th>Price(per serving)</th>
+            </tr>
+
+            <tr>
+                <td>Annually</td>
+                <td>1$</td>
+            </tr>
+
+            <tr>
+                <td>Monthly</td>
+                <td>2$</td>
+
+            </tr>
+        </table>
+    </div>
+
+
